@@ -1,19 +1,18 @@
 package peopleapi.mapper;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.factory.Mappers;
 import peopleapi.dtos.RequestPerson;
+import peopleapi.model.Person;
 
-@Service
-public class PersonMapper {
+@Mapper
+public interface PersonMapper {
 
-    private final ModelMapper modelMapper;
+    Person INSTANCE = Mappers.getMapper(Person.class);
 
-    public PersonMapper(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
-    }
+    Person toPerson(RequestPerson requestPerson);
 
-    public peopleapi.model.Person convertToEntity(RequestPerson requestPerson) {
-        return modelMapper.map(requestPerson, peopleapi.model.Person.class);
-    }
+    void updatePersonFromRequest(@MappingTarget Person existingPerson, RequestPerson requestPerson);
+
 }
