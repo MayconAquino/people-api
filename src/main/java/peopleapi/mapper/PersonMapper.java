@@ -9,7 +9,7 @@ import peopleapi.model.Person;
 @Mapper
 public interface PersonMapper {
 
-    Person INSTANCE = Mappers.getMapper(Person.class);
+    PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
     Person toPerson(RequestPerson requestPerson);
 
