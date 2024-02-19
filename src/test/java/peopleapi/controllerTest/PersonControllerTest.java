@@ -73,8 +73,6 @@ class PersonControllerTest {
     void savePerson_ReturnsOkResponse_WhenPersonIsSaved() {
 
         when(personRepository.existsByCpf(anyString())).thenReturn(false);
-       // when(personMapper.toPerson(any(RequestPerson.class))).thenReturn(new Person());
-
 
         ResponseEntity response = personController.savePerson(new RequestPerson(
                 "Jose", "123.456.789-1", "Rua avenida", "ajudante"));
