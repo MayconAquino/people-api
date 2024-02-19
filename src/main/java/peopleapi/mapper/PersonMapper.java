@@ -11,8 +11,8 @@ public interface PersonMapper {
 
     PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
-    Person toPerson(RequestPerson requestPerson);
+     Person toPerson(RequestPerson requestPerson);
+
 
     void updatePersonFromRequest(@MappingTarget Person existingPerson, RequestPerson requestPerson);
-
 }
