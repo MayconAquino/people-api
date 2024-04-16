@@ -17,6 +17,7 @@ import peopleapi.exception.ExceptionPersonNotExists;
 import peopleapi.mapper.PersonMapper;
 import peopleapi.model.Person;
 import peopleapi.repositoy.PersonRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api/persons")
@@ -57,7 +58,8 @@ public class PersonController {
         }
     }
 
-    @PostMapping()
+    @CrossOrigin(origins = "http://localhost:4200") //Lembrar de realizar essa liberação para geral, pois a porta
+    @PostMapping(consumes = "application/json")     //sempre muda
     public ResponseEntity savePerson(@RequestBody RequestPerson requestPerson){
 
         try {
